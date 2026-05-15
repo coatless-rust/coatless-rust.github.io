@@ -1,0 +1,13 @@
+---
+title: "Coatless Quarto"
+listing:
+  contents: []
+  type: grid
+  template: _extensions/coatless/quarto-org-index/templates/project-card.ejs
+  sort: "date desc"
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+---
+
+Open-source Quarto extensions, templates, and example projects.

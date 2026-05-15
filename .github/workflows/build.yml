@@ -1,0 +1,65 @@
+name: Build org index
+
+on:
+  schedule:
+    - cron: "17 5 * * *"        # daily 05:17 UTC
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [refresh]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch private quarto-org-index extension
+        env:
+          PULL_TOKEN: ${{ secrets.EXTENSION_PULL_TOKEN }}
+        run: |
+          mkdir -p _extensions/coatless
+          git clone --depth 1 \
+            https://x-access-token:${PULL_TOKEN}@github.com/coatless/quarto-org-index.git \
+            _extensions/coatless/quarto-org-index
+          rm -rf _extensions/coatless/quarto-org-index/.git
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps
+        run: pip install requests pyyaml
+
+      - name: Generate index.qmd with inline listing (before render)
+        env:
+          ORG_NAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python _extensions/coatless/quarto-org-index/fetch.py
+
+      - name: Render Quarto site
+        run: quarto render
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

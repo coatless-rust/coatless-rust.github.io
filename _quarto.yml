@@ -1,0 +1,30 @@
+project:
+  type: website
+  # NOTE: fetch.py is invoked as a separate workflow step before `quarto render`
+  # (see .github/workflows/build.yml). It rewrites index.qmd with an inline
+  # listing.contents list, bypassing Quarto's filesystem-glob resolver which
+  # only sees files present at project init time.
+  # For local development, run:
+  #   python _extensions/coatless/quarto-org-index/fetch.py && quarto render
+
+website:
+  title: "Coatless Rust"
+  site-url: "https://rust.thecoatlessprofessor.com/"
+  description: "Rust crates and experiments."
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/coatless-rust
+      - icon: house-door
+        href: https://thecoatlessprofessor.com/
+
+format:
+  html:
+    theme: cosmo
+    css: _extensions/coatless/quarto-org-index/assets/org-index.css
+
+org-index:
+  include-archived: false
+  include-forks: false
+  pin: []
+  hide: []
