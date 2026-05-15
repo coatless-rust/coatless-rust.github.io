@@ -11,12 +11,31 @@ website:
   title: "Coatless Rust"
   site-url: "https://rust.thecoatlessprofessor.com/"
   description: "Rust crates and experiments."
-  navbar:
+  page-footer:
+    center: "© 2026 HJJB, LLC. All rights reserved."
     right:
       - icon: github
-        href: https://github.com/coatless-rust
-      - icon: house-door
-        href: https://thecoatlessprofessor.com/
+        href: https://github.com/coatless
+        aria-label: GitHub
+      - icon: mastodon
+        href: https://mastodon.social/@coatless
+        aria-label: Mastodon
+      - icon: linkedin
+        href: https://www.linkedin.com/in/jamesbalamuta/
+        aria-label: LinkedIn
+      - icon: youtube
+        href: https://www.youtube.com/@thecoatlessprofessor7674
+        aria-label: YouTube
+  navbar:
+    right:
+      - href: https://blog.thecoatlessprofessor.com/
+        text: Blog
+      - href: https://thecoatlessprofessor.com/projects/
+        text: Projects
+      - href: https://thecoatlessprofessor.com/research/
+        text: Research
+      - href: https://thecoatlessprofessor.com/contact/
+        text: Contact
 
 format:
   html:
