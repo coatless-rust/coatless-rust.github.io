@@ -1,0 +1,10 @@
+/*-- scss:defaults --*/
+// Light mode. These repeat the light colors in _brand.yml on purpose: with
+// Quarto 1.10 the brand's foreground color does not reach pages in
+// subfolders, so the theme states the essentials itself.
+$body-bg: #FBF9F4;
+$body-color: #1F2A3A;
+$link-color: #8B5A31;
+$code-color: #1F2A3A;
+$code-bg: #F2EDE3;
+$code-block-bg: #F2EDE3;
