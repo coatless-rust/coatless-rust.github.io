@@ -1,0 +1,94 @@
+meta:
+  name:
+    short: Coatless
+    full: TheCoatlessProfessor
+  link:
+    home: https://thecoatlessprofessor.com
+    github: https://github.com/coatless
+    youtube: https://www.youtube.com/@thecoatlessprofessor7674
+    mastodon: https://mastodon.social/@coatless
+    linkedin: https://www.linkedin.com/in/jamesbalamuta/
+
+logo:
+  images:
+    icon:
+      path: brand/favicon/favicon.svg
+      alt: The Coatless Professor
+    header:
+      path: brand/logo/lockup.svg
+      alt: TheCoatlessProfessor
+    header-reversed:
+      path: brand/logo/lockup-reversed.svg
+      alt: TheCoatlessProfessor
+    full:
+      path: brand/logo/lockup-stacked.svg
+      alt: TheCoatlessProfessor
+  small: icon
+  medium:
+    light: header
+    dark: header-reversed
+  large: full
+
+color:
+  palette:
+    navy: "#1F2A3A"          # the jacket; text and lines on light
+    night: "#121821"         # dark-mode background
+    slate: "#53647D"         # the jacket on dark; secondary text
+    slate-light: "#9AA8BC"   # secondary text on dark
+    cream: "#F2EDE3"         # the logo's own ground; panels, navbar, cards
+    paper: "#FBF9F4"         # page background on light: a quieter cream
+    camel: "#AB703F"         # the tie and elbow patches; accents, never small text on light
+    camel-dark: "#8B5A31"    # the patches' margin; links on light
+    camel-light: "#C68C5A"   # the camel on dark; links on dark
+    mist: "#DCD5C7"          # hairlines and borders on light
+    blue: "#53647D"
+    orange: "#AB703F"
+    white: "#FFFFFF"
+    black: "#121821"
+  foreground:
+    light: navy
+    dark: cream
+  background:
+    light: paper
+    dark: night
+  primary:
+    light: camel-dark
+    dark: camel-light
+  secondary:
+    light: slate
+    dark: slate-light
+  light: cream
+  dark: navy
+
+typography:
+  fonts:
+    - family: Jost
+      source: google
+      weight: [400, 500, 600]
+      style: [normal, italic]
+    - family: Source Sans Pro
+      source: google
+      weight: [400, 600, 700]
+      style: [normal, italic]
+    - family: JetBrains Mono
+      source: google
+      weight: [400, 700]
+  base:
+    family: Source Sans Pro
+    size: 18px
+    line-height: 1.6
+  headings:
+    family: Jost
+    weight: 600
+    line-height: 1.2
+    color:
+      light: navy
+      dark: cream
+  monospace:
+    family: JetBrains Mono
+    size: 0.9em
+  link:
+    color:
+      light: camel-dark
+      dark: camel-light
+    decoration: underline

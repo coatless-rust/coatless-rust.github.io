@@ -1,5 +1,13 @@
 project:
   type: website
+  resources:
+    - "brand/**"
+    - "favicon.ico"
+    - "favicon.svg"
+    - "favicon-192.png"
+    - "favicon-512.png"
+    - "apple-touch-icon.png"
+    - "site.webmanifest"
   # NOTE: fetch.py is invoked as a separate workflow step before `quarto render`
   # (see .github/workflows/build.yml). It rewrites index.qmd with an inline
   # listing.contents list, bypassing Quarto's filesystem-glob resolver which
@@ -11,6 +19,9 @@ website:
   title: "Coatless Rust"
   site-url: "https://rust.thecoatlessprofessor.com/"
   description: "Rust crates and experiments."
+  image: https://rust.thecoatlessprofessor.com/brand/social/og-card.png
+  open-graph: true
+  twitter-card: true
   page-footer:
     center: "© 2026 HJJB, LLC. All rights reserved."
     right:
@@ -27,6 +38,10 @@ website:
         href: https://www.youtube.com/@thecoatlessprofessor7674
         aria-label: YouTube
   navbar:
+    logo: brand/logo/lockup-reversed.svg
+    logo-alt: "TheCoatlessProfessor"
+    logo-href: https://thecoatlessprofessor.com/
+    title: false
     right:
       - href: https://blog.thecoatlessprofessor.com/
         text: Blog
@@ -39,8 +54,19 @@ website:
 
 format:
   html:
-    theme: cosmo
+    # The brand (_brand.yml) sets colors and type; the coatless files add the navy
+    # bar, the stitched title and the cards. Dark mode keeps darkly underneath for
+    # its dark form fields.
+    theme:
+      light: [cosmo, brand, coatless-light.scss, coatless.scss]
+      dark: [darkly, brand, coatless-dark.scss, coatless.scss]
     css: _extensions/coatless/quarto-org-index/assets/org-index.css
+    include-in-header:
+      text: |
+        <link rel="icon" href="/favicon.ico" sizes="48x48">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
 
 org-index:
   include-archived: false
